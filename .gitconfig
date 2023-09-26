@@ -1,0 +1,29 @@
+[user]
+	email = niklas@stylianou.info
+	name = nstylo
+[merge]
+    tool = vscode
+[diff]
+    tool = vscode
+[difftool]
+    prompt = false
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool]
+    prompt = true
+    keepBackup = false
+[mergetool "vscode"]
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[mergetool "pycharm"]
+	cmd = pycharm merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "nvim"]
+	cmd = nvim -d $LOCAL $MERGED $REMOTE -c 'wincmd w'
+[push]
+	default = current
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

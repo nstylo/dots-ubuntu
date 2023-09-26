@@ -1,0 +1,38 @@
+#!/bin/bash
+
+symbol=""
+case $1 in
+    "ue")
+        symbol="ü"
+        ;;
+    "Ue")
+        symbol="Ü"
+        ;;
+    "ae")
+        symbol="ä"
+        ;;
+    "Ae")
+        symbol="Ä"
+        ;;
+    "oe")
+        symbol="ö"
+        ;;
+    "Oe")
+        symbol="Ö"
+        ;;
+    "ss")
+        symbol="ß"
+        ;;
+    "eu")
+        symbol="€"
+        ;;
+    *)
+        echo "unknown symbol."
+        exit 1
+        ;;
+esac
+
+echo "$symbol"
+echo -n "$symbol" | xclip -selection clipboard
+
+exit 0
